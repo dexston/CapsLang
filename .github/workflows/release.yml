@@ -1,0 +1,142 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - '[0-9]*.[0-9]*.[0-9]*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Release version (e.g. 1.0.0)'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    name: Build, Sign and Release
+    runs-on: windows-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate Release Version
+        shell: pwsh
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          REF_NAME: ${{ github.ref_name }}
+          INPUT_VERSION: ${{ inputs.version }}
+        run: |
+          $version = if ($env:EVENT_NAME -eq "workflow_dispatch") { $env:INPUT_VERSION } else { $env:REF_NAME }
+          if ([string]::IsNullOrWhiteSpace($version) -or ($version -notmatch '^\d+\.\d+\.\d+(-[0-9A-Za-z.-]+)?$')) {
+              Write-Error "FAIL-FAST: Invalid version format '$version'! Expected strict SemVer without 'v' prefix (e.g. '1.0.0' or '1.0.0-beta.1')."
+              exit 1
+          }
+          if ($env:EVENT_NAME -eq "workflow_dispatch") {
+              $existingTag = git tag -l $version
+              if (-not [string]::IsNullOrWhiteSpace($existingTag)) {
+                  Write-Error "FAIL-FAST: Tag '$version' already exists in the repository!"
+                  exit 1
+              }
+          }
+          "RELEASE_VERSION=$version" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+          Write-Host "Validated release version: $version" -ForegroundColor Green
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Setup Inno Setup
+        shell: pwsh
+        run: |
+          $isccCmd = (Get-Command iscc.exe -ErrorAction SilentlyContinue)
+          $preinstalled = "${env:ProgramFiles(x86)}\Inno Setup 6\iscc.exe"
+          if ($isccCmd -or (Test-Path $preinstalled)) {
+              Write-Host "Inno Setup is already present on this runner. Skipping installation."
+          } else {
+              Write-Host "Inno Setup not found on runner. Installing via Chocolatey..."
+              choco install innosetup --no-progress -y
+          }
+
+      - name: Restore Code Signing Certificate
+        shell: pwsh
+        env:
+          CERT_PFX_BASE64: ${{ secrets.CERTIFICATE_PFX }}
+        run: |
+          if ([string]::IsNullOrWhiteSpace($env:CERT_PFX_BASE64)) {
+              Write-Error "FAIL-FAST: Secret 'CERTIFICATE_PFX' is missing! Official releases must be cryptographically signed."
+              exit 1
+          }
+          $certDir = "resources\cert"
+          if (-not (Test-Path $certDir)) {
+              New-Item -ItemType Directory -Path $certDir -Force | Out-Null
+          }
+          $pfxBytes = [Convert]::FromBase64String($env:CERT_PFX_BASE64)
+          [IO.File]::WriteAllBytes((Join-Path $certDir "CapsLang.pfx"), $pfxBytes)
+          Write-Host "Code signing certificate restored successfully."
+
+      - name: Build All Distributions
+        shell: pwsh
+        env:
+          CERT_PASSWORD: ${{ secrets.CERTIFICATE_PASSWORD }}
+        run: |
+          if ([string]::IsNullOrWhiteSpace($env:CERT_PASSWORD)) {
+              Write-Error "FAIL-FAST: Secret 'CERTIFICATE_PASSWORD' is missing! Cannot decrypt code signing certificate."
+              exit 1
+          }
+
+          Write-Host "Building signed distributions for version $($env:RELEASE_VERSION)..."
+          powershell -ExecutionPolicy Bypass -File scripts\build-dist.ps1 -Target All -Version $env:RELEASE_VERSION
+
+          if ($LASTEXITCODE -ne 0) {
+              Write-Error "build-dist.ps1 failed with exit code $LASTEXITCODE!"
+              exit $LASTEXITCODE
+          }
+
+      - name: Smoke Test Binary (--quit)
+        shell: pwsh
+        run: |
+          $exe = ".\build\bin\Release\Portable\CapsLang.exe"
+          if (-not (Test-Path $exe)) {
+              Write-Error "CapsLang.exe was not produced at $exe!"
+              exit 1
+          }
+
+          Write-Host "Running smoke test: CapsLang.exe --quit..."
+          $smokeProc = Start-Process -FilePath $exe -ArgumentList "--quit" -PassThru
+          if (-not $smokeProc.WaitForExit(10000)) {
+              try { $smokeProc.Kill() } catch {}
+              Write-Error "Smoke test timed out after 10 seconds!"
+              exit 1
+          }
+          if ($smokeProc.ExitCode -ne 0) {
+              Write-Error "Smoke test failed with exit code $($smokeProc.ExitCode)!"
+              exit 1
+          }
+          Write-Host "Smoke test passed successfully."
+
+      - name: Clean up Signing Certificate
+        if: always()
+        shell: pwsh
+        run: Remove-Item -Path "resources\cert\CapsLang.pfx" -Force -ErrorAction SilentlyContinue
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: ${{ env.RELEASE_VERSION }}
+          name: "CapsLang ${{ env.RELEASE_VERSION }}"
+          files: |
+            build/dist/CapsLang-*-Setup.exe
+            build/dist/CapsLang-*-Setup.exe.sha256
+            build/dist/CapsLang-*-Portable.zip
+            build/dist/CapsLang-*-Portable.zip.sha256
+          draft: false
+          prerelease: ${{ contains(env.RELEASE_VERSION, '-') }}
+          generate_release_notes: true

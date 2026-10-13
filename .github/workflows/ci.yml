@@ -1,0 +1,96 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Build and Validate
+    runs-on: windows-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate Localization and Generated Code (Fail-Fast)
+        shell: pwsh
+        run: |
+          Write-Host "Running generate-loc.ps1 (includes parity verification)..."
+          powershell -ExecutionPolicy Bypass -File scripts\generate-loc.ps1
+          if ($LASTEXITCODE -ne 0) {
+              Write-Error "Localization verification or generation failed with exit code $LASTEXITCODE!"
+              exit $LASTEXITCODE
+          }
+          $diff = git status --porcelain resources/localization/ src/Core/Localization/Loc.cs
+          if ($diff) {
+              Write-Error "Generated localization files (.resx, Loc.cs) are out of sync with .strings files!`nPlease run 'scripts/generate-loc.ps1' locally and commit the updated files.`nDiff:`n$diff"
+              exit 1
+          }
+          Write-Host "Localization verification and code sync passed."
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Build Portable Edition (IsPortable=true)
+        shell: pwsh
+        run: |
+          Write-Host "Building Portable edition..."
+          dotnet build -c Release -p:IsPortable=true
+          if ($LASTEXITCODE -ne 0) {
+              Write-Error "Portable edition build failed with exit code $LASTEXITCODE!"
+              exit $LASTEXITCODE
+          }
+
+      - name: Smoke Test Binary (--quit)
+        shell: pwsh
+        run: |
+          $exe = ".\build\bin\Release\Portable\CapsLang.exe"
+          if (-not (Test-Path $exe)) {
+              Write-Error "CapsLang.exe was not produced at $exe!"
+              exit 1
+          }
+
+          Write-Host "Running smoke test: CapsLang.exe --quit..."
+          $smokeProc = Start-Process -FilePath $exe -ArgumentList "--quit" -PassThru
+          if (-not $smokeProc.WaitForExit(10000)) {
+              try { $smokeProc.Kill() } catch {}
+              Write-Error "Smoke test timed out after 10 seconds!"
+              exit 1
+          }
+          if ($smokeProc.ExitCode -ne 0) {
+              Write-Error "Smoke test failed with exit code $($smokeProc.ExitCode)!"
+              exit 1
+          }
+          Write-Host "Smoke test passed successfully (ExitCode: $($smokeProc.ExitCode))."
+
+      - name: Build Installer Payload (IsPortable=false, uiAccess=true)
+        shell: pwsh
+        run: |
+          Write-Host "Building Installer payload with dynamic UIAccess manifest..."
+          dotnet build -c Release -p:IsPortable=false
+          if ($LASTEXITCODE -ne 0) {
+              Write-Error "Installer payload build failed with exit code $LASTEXITCODE!"
+              exit $LASTEXITCODE
+          }
+
+      - name: Validate Inno Setup Script (CapsLang.iss)
+        shell: pwsh
+        run: |
+          Write-Host "Validating Inno Setup script compilation..."
+          iscc /Q installer\CapsLang.iss
+          if ($LASTEXITCODE -ne 0) {
+              Write-Error "Inno Setup compilation failed with exit code $LASTEXITCODE!"
+              exit $LASTEXITCODE
+          }
+          Write-Host "Inno Setup script validated successfully."
