@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Tray.Active" xml:space="preserve">
+    <value>CapsLang: активно</value>
+  </data>
+  <data name="Tray.Paused" xml:space="preserve">
+    <value>CapsLang: отключено</value>
+  </data>
+  <data name="Tray.Menu.Toggle" xml:space="preserve">
+    <value>Переключение раскладки</value>
+  </data>
+  <data name="Tray.Menu.Enable" xml:space="preserve">
+    <value>Включить</value>
+  </data>
+  <data name="Tray.Menu.Disable" xml:space="preserve">
+    <value>Отключить</value>
+  </data>
+  <data name="Tray.Menu.Settings" xml:space="preserve">
+    <value>Настройки...</value>
+  </data>
+  <data name="Tray.Menu.Exit" xml:space="preserve">
+    <value>Выход</value>
+  </data>
+  <data name="Settings.Title" xml:space="preserve">
+    <value>Настройки CapsLang</value>
+  </data>
+  <data name="Settings.Active.Title" xml:space="preserve">
+    <value>Переключение раскладки по Caps Lock</value>
+  </data>
+  <data name="Settings.Active.Desc" xml:space="preserve">
+    <value>Перехватывать клавишу Caps Lock для быстрой смены языка</value>
+  </data>
+  <data name="Settings.Startup.Title" xml:space="preserve">
+    <value>Запускать вместе с Windows</value>
+  </data>
+  <data name="Settings.Startup.Desc" xml:space="preserve">
+    <value>Автоматически запускать CapsLang в системном трее при входе</value>
+  </data>
+  <data name="Settings.Language.Title" xml:space="preserve">
+    <value>Язык интерфейса</value>
+  </data>
+  <data name="Settings.Language.Desc" xml:space="preserve">
+    <value>Выберите язык отображения меню и настроек</value>
+  </data>
+  <data name="Settings.IconColor.Title" xml:space="preserve">
+    <value>Цвет активной иконки</value>
+  </data>
+  <data name="Settings.IconColor.Desc" xml:space="preserve">
+    <value>Выберите цвет значка в системном трее и заголовке окна</value>
+  </data>
+  <data name="Settings.Processes.Title" xml:space="preserve">
+    <value>Исключённые процессы (.exe)</value>
+  </data>
+  <data name="Settings.Processes.Desc" xml:space="preserve">
+    <value>Утилита не перехватывает Caps Lock в выбранных программах</value>
+  </data>
+  <data name="Settings.Folders.Title" xml:space="preserve">
+    <value>Папки-исключения</value>
+  </data>
+  <data name="Settings.Folders.Desc" xml:space="preserve">
+    <value>Отключать перехват для всех программ, запущенных из этих папок</value>
+  </data>
+  <data name="Settings.EmptyHint" xml:space="preserve">
+    <value>Список пуст — ограничений нет</value>
+  </data>
+  <data name="Settings.Button.Add" xml:space="preserve">
+    <value>+ Добавить</value>
+  </data>
+  <data name="Settings.Folders.Header" xml:space="preserve">
+    <value>Папки-исключения ({0}):</value>
+  </data>
+  <data name="Settings.Folders.Add" xml:space="preserve">
+    <value>Добавить папку...</value>
+  </data>
+  <data name="Settings.Processes.Header" xml:space="preserve">
+    <value>Исключённые процессы (.exe) ({0}):</value>
+  </data>
+  <data name="Settings.Processes.Add" xml:space="preserve">
+    <value>Добавить процесс (.exe)...</value>
+  </data>
+  <data name="Settings.Language.Label" xml:space="preserve">
+    <value>Язык интерфейса:</value>
+  </data>
+  <data name="Settings.Status.Active" xml:space="preserve">
+    <value>Статус: Активен</value>
+  </data>
+  <data name="Settings.Status.Paused" xml:space="preserve">
+    <value>Статус: Отключён</value>
+  </data>
+  <data name="Settings.Button.Enable" xml:space="preserve">
+    <value>Включить</value>
+  </data>
+  <data name="Settings.Button.Disable" xml:space="preserve">
+    <value>Отключить</value>
+  </data>
+  <data name="Settings.Button.Export" xml:space="preserve">
+    <value>Экспортировать настройки в .xml файл</value>
+  </data>
+  <data name="Settings.Button.Save" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="Settings.Button.Cancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="Dialog.Folder.Prompt" xml:space="preserve">
+    <value>Выберите папку для исключения (например, D:\Games\ или C:\Tools\)</value>
+  </data>
+  <data name="Dialog.Process.Title" xml:space="preserve">
+    <value>Выберите исполняемый файл для исключения</value>
+  </data>
+  <data name="Dialog.Process.Filter" xml:space="preserve">
+    <value>Исполняемые файлы (*.exe)|*.exe|Все файлы (*.*)|*.*</value>
+  </data>
+  <data name="Dialog.Export.Title" xml:space="preserve">
+    <value>Экспорт настроек CapsLang</value>
+  </data>
+  <data name="Dialog.Export.Filter" xml:space="preserve">
+    <value>Файлы настроек CapsLang (*.xml)|*.xml|Все файлы (*.*)|*.*</value>
+  </data>
+  <data name="Dialog.Export.Success" xml:space="preserve">
+    <value>Настройки успешно экспортированы в файл:
+{0}</value>
+  </data>
+  <data name="Dialog.Export.SuccessTitle" xml:space="preserve">
+    <value>Экспорт настроек</value>
+  </data>
+  <data name="Dialog.Export.FailedCode" xml:space="preserve">
+    <value>Не удалось экспортировать настройки (код: {0}).</value>
+  </data>
+  <data name="Dialog.Export.Timeout" xml:space="preserve">
+    <value>Время ожидания операции экспорта истекло.</value>
+  </data>
+  <data name="Dialog.Export.Error" xml:space="preserve">
+    <value>Ошибка при экспорте настроек:
+{0}</value>
+  </data>
+  <data name="Dialog.Export.ErrorTitle" xml:space="preserve">
+    <value>Ошибка экспорта</value>
+  </data>
+  <data name="Dialog.Import.Title" xml:space="preserve">
+    <value>Импорт настроек CapsLang</value>
+  </data>
+  <data name="Dialog.Import.Filter" xml:space="preserve">
+    <value>Файлы настроек CapsLang (*.xml)|*.xml|Все файлы (*.*)|*.*</value>
+  </data>
+  <data name="Dialog.Import.Success" xml:space="preserve">
+    <value>Настройки успешно импортированы из файла:
+{0}</value>
+  </data>
+  <data name="Dialog.Import.SuccessTitle" xml:space="preserve">
+    <value>Импорт настроек</value>
+  </data>
+  <data name="Dialog.Import.Error" xml:space="preserve">
+    <value>Ошибка при импорте настроек:
+{0}</value>
+  </data>
+  <data name="Dialog.Import.ErrorTitle" xml:space="preserve">
+    <value>Ошибка импорта</value>
+  </data>
+  <data name="Dialog.Import.InvalidFile" xml:space="preserve">
+    <value>Выбранный файл повреждён или содержит некорректные данные.</value>
+  </data>
+  <data name="Dialog.Import.NotFound" xml:space="preserve">
+    <value>Файл не найден:
+{0}</value>
+  </data>
+  <data name="Dialog.Save.StorageBlocked" xml:space="preserve">
+    <value>Доступ к хранилищу настроек заблокирован (возможно, антивирусом или правами доступа):
+
+{0}</value>
+  </data>
+  <data name="Dialog.Save.AccessTitle" xml:space="preserve">
+    <value>Ошибка доступа</value>
+  </data>
+  <data name="Dialog.Save.Error" xml:space="preserve">
+    <value>Не удалось сохранить настройки:
+
+{0}</value>
+  </data>
+  <data name="Dialog.Save.ErrorTitle" xml:space="preserve">
+    <value>Ошибка сохранения</value>
+  </data>
+  <data name="Language.Auto" xml:space="preserve">
+    <value>Авто (системный)</value>
+  </data>
+  <data name="Language.Ru" xml:space="preserve">
+    <value>Русский</value>
+  </data>
+  <data name="Language.En" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="IconColor.Blue" xml:space="preserve">
+    <value>Синий</value>
+  </data>
+  <data name="IconColor.Amber" xml:space="preserve">
+    <value>Янтарный</value>
+  </data>
+  <data name="Settings.Menu.Export" xml:space="preserve">
+    <value>Экспорт настроек</value>
+  </data>
+  <data name="Settings.Menu.Import" xml:space="preserve">
+    <value>Импорт настроек</value>
+  </data>
+  <data name="Settings.Header.Description" xml:space="preserve">
+    <value>Быстрое переключение раскладки клавиатуры по нажатию Caps Lock</value>
+  </data>
+  <data name="Settings.Header.Copyright" xml:space="preserve">
+    <value>© 2026 Sergey Matveev (dexston)</value>
+  </data>
+  <data name="Settings.Header.SourceCode" xml:space="preserve">
+    <value>Исходный код</value>
+  </data>
+  <data name="Settings.Header.Share" xml:space="preserve">
+    <value>Поделиться</value>
+  </data>
+  <data name="Settings.Header.TooltipSourceCode" xml:space="preserve">
+    <value>Перейти к исходному коду</value>
+  </data>
+  <data name="Settings.Header.TooltipShare" xml:space="preserve">
+    <value>Скопировать ссылку на проект</value>
+  </data>
+  <data name="Settings.Header.TooltipShareCopied" xml:space="preserve">
+    <value>Ссылка скопирована в буфер обмена</value>
+  </data>
+  <data name="Settings.Header.TooltipLanguage" xml:space="preserve">
+    <value>Язык интерфейса</value>
+  </data>
+  <data name="Settings.Header.TooltipExport" xml:space="preserve">
+    <value>Экспорт настроек</value>
+  </data>
+  <data name="Settings.Header.TooltipBackup" xml:space="preserve">
+    <value>Резервная копия настроек</value>
+  </data>
+  <data name="Settings.Header.TooltipTheme" xml:space="preserve">
+    <value>Сменить тему оформления</value>
+  </data>
+  <data name="Settings.Header.Version" xml:space="preserve">
+    <value>{0}</value>
+  </data>
+  <data name="Settings.Header.VersionPortable" xml:space="preserve">
+    <value>{0}-p</value>
+  </data>
+  <data name="Settings.Header.TooltipVersion" xml:space="preserve">
+    <value>Версия {0}</value>
+  </data>
+  <data name="Settings.Header.TooltipVersionPortable" xml:space="preserve">
+    <value>Версия {0} (Portable)</value>
+  </data>
+</root>

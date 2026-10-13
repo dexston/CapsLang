@@ -1,0 +1,104 @@
+// ==========================================
+// Tray
+// ==========================================
+"Tray.Active" = "CapsLang: Active";
+"Tray.Paused" = "CapsLang: Paused";
+"Tray.Menu.Toggle" = "Layout switching";
+"Tray.Menu.Enable" = "Enable";
+"Tray.Menu.Disable" = "Disable";
+"Tray.Menu.Settings" = "Settings...";
+"Tray.Menu.Exit" = "Exit";
+
+// ==========================================
+// Settings Form
+// ==========================================
+"Settings.Title" = "CapsLang Settings";
+"Settings.Active.Title" = "Switch layout via Caps Lock";
+"Settings.Active.Desc" = "Intercept the Caps Lock key for instant keyboard layout switching";
+"Settings.Startup.Title" = "Launch at Windows startup";
+"Settings.Startup.Desc" = "Automatically start CapsLang in the system tray when signing in";
+"Settings.Language.Title" = "Interface language";
+"Settings.Language.Desc" = "Choose the display language for tray menu and settings";
+"Settings.IconColor.Title" = "Active icon color";
+"Settings.IconColor.Desc" = "Choose the icon color for the system tray and window title";
+"Settings.Processes.Title" = "Excluded processes (.exe)";
+"Settings.Processes.Desc" = "Disable Caps Lock interception inside selected applications";
+"Settings.Folders.Title" = "Excluded folders";
+"Settings.Folders.Desc" = "Disable interception for all programs launched from these folders";
+"Settings.EmptyHint" = "List is empty — no restrictions";
+"Settings.Button.Add" = "+ Add";
+"Settings.Folders.Header" = "Excluded Folders ({0}):";
+"Settings.Folders.Add" = "Add folder...";
+"Settings.Processes.Header" = "Excluded Processes (.exe) ({0}):";
+"Settings.Processes.Add" = "Add process (.exe)...";
+"Settings.Language.Label" = "Language:";
+"Settings.Status.Active" = "Status: Active";
+"Settings.Status.Paused" = "Status: Paused";
+"Settings.Button.Enable" = "Enable";
+"Settings.Button.Disable" = "Disable";
+"Settings.Button.Export" = "Export settings to .xml file";
+"Settings.Button.Save" = "Save";
+"Settings.Button.Cancel" = "Cancel";
+
+// ==========================================
+// Dialogs & Messages
+// ==========================================
+"Dialog.Folder.Prompt" = "Select a folder to exclude (e.g. D:\\Games\\ or C:\\Tools\\)";
+"Dialog.Process.Title" = "Select an executable file to exclude";
+"Dialog.Process.Filter" = "Executable Files (*.exe)|*.exe|All Files (*.*)|*.*";
+"Dialog.Export.Title" = "Export CapsLang Settings";
+"Dialog.Export.Filter" = "CapsLang Settings (*.xml)|*.xml|All Files (*.*)|*.*";
+"Dialog.Export.Success" = "Settings successfully exported to file:\n{0}";
+"Dialog.Export.SuccessTitle" = "Settings Export";
+"Dialog.Export.FailedCode" = "Failed to export settings (code: {0}).";
+"Dialog.Export.Timeout" = "Export operation timed out.";
+"Dialog.Export.Error" = "Error exporting settings:\n{0}";
+"Dialog.Export.ErrorTitle" = "Export Error";
+"Dialog.Import.Title" = "Import CapsLang Settings";
+"Dialog.Import.Filter" = "CapsLang Settings (*.xml)|*.xml|All Files (*.*)|*.*";
+"Dialog.Import.Success" = "Settings successfully imported from file:\n{0}";
+"Dialog.Import.SuccessTitle" = "Import Settings";
+"Dialog.Import.Error" = "Error importing settings:\n{0}";
+"Dialog.Import.ErrorTitle" = "Import Error";
+"Dialog.Import.InvalidFile" = "The selected file is corrupt or contains invalid data.";
+"Dialog.Import.NotFound" = "File not found:\n{0}";
+"Dialog.Save.StorageBlocked" = "Settings storage access is restricted (possibly by antivirus or access permissions):\n\n{0}";
+"Dialog.Save.AccessTitle" = "Access Error";
+"Dialog.Save.Error" = "Failed to save settings:\n\n{0}";
+"Dialog.Save.ErrorTitle" = "Save Error";
+
+// ==========================================
+// Language Names
+// ==========================================
+"Language.Auto" = "Auto (System)";
+"Language.Ru" = "Русский";
+"Language.En" = "English";
+"IconColor.Blue" = "Blue";
+"IconColor.Amber" = "Amber";
+
+// ==========================================
+// Menu & Actions
+// ==========================================
+"Settings.Menu.Export" = "Export settings";
+"Settings.Menu.Import" = "Import settings";
+
+// ==========================================
+// Header & About
+// ==========================================
+"Settings.Header.Description" = "Fast and lightweight keyboard layout switcher via Caps Lock";
+"Settings.Header.Copyright" = "© 2026 Sergey Matveev (dexston)";
+"Settings.Header.SourceCode" = "Source code";
+"Settings.Header.Share" = "Share";
+"Settings.Header.TooltipSourceCode" = "Open source code";
+"Settings.Header.TooltipShare" = "Copy link to project";
+"Settings.Header.TooltipShareCopied" = "Link copied to clipboard";
+"Settings.Header.TooltipLanguage" = "Interface language";
+"Settings.Header.TooltipExport" = "Export settings";
+"Settings.Header.TooltipBackup" = "Backup & restore settings";
+"Settings.Header.TooltipTheme" = "Switch color theme";
+"Settings.Header.Version" = "{0}";
+"Settings.Header.VersionPortable" = "{0}-p";
+"Settings.Header.TooltipVersion" = "Version {0}";
+"Settings.Header.TooltipVersionPortable" = "Version {0} (Portable)";
+
+

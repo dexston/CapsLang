@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Tray.Active" xml:space="preserve">
+    <value>CapsLang: Active</value>
+  </data>
+  <data name="Tray.Paused" xml:space="preserve">
+    <value>CapsLang: Paused</value>
+  </data>
+  <data name="Tray.Menu.Toggle" xml:space="preserve">
+    <value>Layout switching</value>
+  </data>
+  <data name="Tray.Menu.Enable" xml:space="preserve">
+    <value>Enable</value>
+  </data>
+  <data name="Tray.Menu.Disable" xml:space="preserve">
+    <value>Disable</value>
+  </data>
+  <data name="Tray.Menu.Settings" xml:space="preserve">
+    <value>Settings...</value>
+  </data>
+  <data name="Tray.Menu.Exit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="Settings.Title" xml:space="preserve">
+    <value>CapsLang Settings</value>
+  </data>
+  <data name="Settings.Active.Title" xml:space="preserve">
+    <value>Switch layout via Caps Lock</value>
+  </data>
+  <data name="Settings.Active.Desc" xml:space="preserve">
+    <value>Intercept the Caps Lock key for instant keyboard layout switching</value>
+  </data>
+  <data name="Settings.Startup.Title" xml:space="preserve">
+    <value>Launch at Windows startup</value>
+  </data>
+  <data name="Settings.Startup.Desc" xml:space="preserve">
+    <value>Automatically start CapsLang in the system tray when signing in</value>
+  </data>
+  <data name="Settings.Language.Title" xml:space="preserve">
+    <value>Interface language</value>
+  </data>
+  <data name="Settings.Language.Desc" xml:space="preserve">
+    <value>Choose the display language for tray menu and settings</value>
+  </data>
+  <data name="Settings.IconColor.Title" xml:space="preserve">
+    <value>Active icon color</value>
+  </data>
+  <data name="Settings.IconColor.Desc" xml:space="preserve">
+    <value>Choose the icon color for the system tray and window title</value>
+  </data>
+  <data name="Settings.Processes.Title" xml:space="preserve">
+    <value>Excluded processes (.exe)</value>
+  </data>
+  <data name="Settings.Processes.Desc" xml:space="preserve">
+    <value>Disable Caps Lock interception inside selected applications</value>
+  </data>
+  <data name="Settings.Folders.Title" xml:space="preserve">
+    <value>Excluded folders</value>
+  </data>
+  <data name="Settings.Folders.Desc" xml:space="preserve">
+    <value>Disable interception for all programs launched from these folders</value>
+  </data>
+  <data name="Settings.EmptyHint" xml:space="preserve">
+    <value>List is empty — no restrictions</value>
+  </data>
+  <data name="Settings.Button.Add" xml:space="preserve">
+    <value>+ Add</value>
+  </data>
+  <data name="Settings.Folders.Header" xml:space="preserve">
+    <value>Excluded Folders ({0}):</value>
+  </data>
+  <data name="Settings.Folders.Add" xml:space="preserve">
+    <value>Add folder...</value>
+  </data>
+  <data name="Settings.Processes.Header" xml:space="preserve">
+    <value>Excluded Processes (.exe) ({0}):</value>
+  </data>
+  <data name="Settings.Processes.Add" xml:space="preserve">
+    <value>Add process (.exe)...</value>
+  </data>
+  <data name="Settings.Language.Label" xml:space="preserve">
+    <value>Language:</value>
+  </data>
+  <data name="Settings.Status.Active" xml:space="preserve">
+    <value>Status: Active</value>
+  </data>
+  <data name="Settings.Status.Paused" xml:space="preserve">
+    <value>Status: Paused</value>
+  </data>
+  <data name="Settings.Button.Enable" xml:space="preserve">
+    <value>Enable</value>
+  </data>
+  <data name="Settings.Button.Disable" xml:space="preserve">
+    <value>Disable</value>
+  </data>
+  <data name="Settings.Button.Export" xml:space="preserve">
+    <value>Export settings to .xml file</value>
+  </data>
+  <data name="Settings.Button.Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Settings.Button.Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Dialog.Folder.Prompt" xml:space="preserve">
+    <value>Select a folder to exclude (e.g. D:\Games\ or C:\Tools\)</value>
+  </data>
+  <data name="Dialog.Process.Title" xml:space="preserve">
+    <value>Select an executable file to exclude</value>
+  </data>
+  <data name="Dialog.Process.Filter" xml:space="preserve">
+    <value>Executable Files (*.exe)|*.exe|All Files (*.*)|*.*</value>
+  </data>
+  <data name="Dialog.Export.Title" xml:space="preserve">
+    <value>Export CapsLang Settings</value>
+  </data>
+  <data name="Dialog.Export.Filter" xml:space="preserve">
+    <value>CapsLang Settings (*.xml)|*.xml|All Files (*.*)|*.*</value>
+  </data>
+  <data name="Dialog.Export.Success" xml:space="preserve">
+    <value>Settings successfully exported to file:
+{0}</value>
+  </data>
+  <data name="Dialog.Export.SuccessTitle" xml:space="preserve">
+    <value>Settings Export</value>
+  </data>
+  <data name="Dialog.Export.FailedCode" xml:space="preserve">
+    <value>Failed to export settings (code: {0}).</value>
+  </data>
+  <data name="Dialog.Export.Timeout" xml:space="preserve">
+    <value>Export operation timed out.</value>
+  </data>
+  <data name="Dialog.Export.Error" xml:space="preserve">
+    <value>Error exporting settings:
+{0}</value>
+  </data>
+  <data name="Dialog.Export.ErrorTitle" xml:space="preserve">
+    <value>Export Error</value>
+  </data>
+  <data name="Dialog.Import.Title" xml:space="preserve">
+    <value>Import CapsLang Settings</value>
+  </data>
+  <data name="Dialog.Import.Filter" xml:space="preserve">
+    <value>CapsLang Settings (*.xml)|*.xml|All Files (*.*)|*.*</value>
+  </data>
+  <data name="Dialog.Import.Success" xml:space="preserve">
+    <value>Settings successfully imported from file:
+{0}</value>
+  </data>
+  <data name="Dialog.Import.SuccessTitle" xml:space="preserve">
+    <value>Import Settings</value>
+  </data>
+  <data name="Dialog.Import.Error" xml:space="preserve">
+    <value>Error importing settings:
+{0}</value>
+  </data>
+  <data name="Dialog.Import.ErrorTitle" xml:space="preserve">
+    <value>Import Error</value>
+  </data>
+  <data name="Dialog.Import.InvalidFile" xml:space="preserve">
+    <value>The selected file is corrupt or contains invalid data.</value>
+  </data>
+  <data name="Dialog.Import.NotFound" xml:space="preserve">
+    <value>File not found:
+{0}</value>
+  </data>
+  <data name="Dialog.Save.StorageBlocked" xml:space="preserve">
+    <value>Settings storage access is restricted (possibly by antivirus or access permissions):
+
+{0}</value>
+  </data>
+  <data name="Dialog.Save.AccessTitle" xml:space="preserve">
+    <value>Access Error</value>
+  </data>
+  <data name="Dialog.Save.Error" xml:space="preserve">
+    <value>Failed to save settings:
+
+{0}</value>
+  </data>
+  <data name="Dialog.Save.ErrorTitle" xml:space="preserve">
+    <value>Save Error</value>
+  </data>
+  <data name="Language.Auto" xml:space="preserve">
+    <value>Auto (System)</value>
+  </data>
+  <data name="Language.Ru" xml:space="preserve">
+    <value>Русский</value>
+  </data>
+  <data name="Language.En" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="IconColor.Blue" xml:space="preserve">
+    <value>Blue</value>
+  </data>
+  <data name="IconColor.Amber" xml:space="preserve">
+    <value>Amber</value>
+  </data>
+  <data name="Settings.Menu.Export" xml:space="preserve">
+    <value>Export settings</value>
+  </data>
+  <data name="Settings.Menu.Import" xml:space="preserve">
+    <value>Import settings</value>
+  </data>
+  <data name="Settings.Header.Description" xml:space="preserve">
+    <value>Fast and lightweight keyboard layout switcher via Caps Lock</value>
+  </data>
+  <data name="Settings.Header.Copyright" xml:space="preserve">
+    <value>© 2026 Sergey Matveev (dexston)</value>
+  </data>
+  <data name="Settings.Header.SourceCode" xml:space="preserve">
+    <value>Source code</value>
+  </data>
+  <data name="Settings.Header.Share" xml:space="preserve">
+    <value>Share</value>
+  </data>
+  <data name="Settings.Header.TooltipSourceCode" xml:space="preserve">
+    <value>Open source code</value>
+  </data>
+  <data name="Settings.Header.TooltipShare" xml:space="preserve">
+    <value>Copy link to project</value>
+  </data>
+  <data name="Settings.Header.TooltipShareCopied" xml:space="preserve">
+    <value>Link copied to clipboard</value>
+  </data>
+  <data name="Settings.Header.TooltipLanguage" xml:space="preserve">
+    <value>Interface language</value>
+  </data>
+  <data name="Settings.Header.TooltipExport" xml:space="preserve">
+    <value>Export settings</value>
+  </data>
+  <data name="Settings.Header.TooltipBackup" xml:space="preserve">
+    <value>Backup &amp; restore settings</value>
+  </data>
+  <data name="Settings.Header.TooltipTheme" xml:space="preserve">
+    <value>Switch color theme</value>
+  </data>
+  <data name="Settings.Header.Version" xml:space="preserve">
+    <value>{0}</value>
+  </data>
+  <data name="Settings.Header.VersionPortable" xml:space="preserve">
+    <value>{0}-p</value>
+  </data>
+  <data name="Settings.Header.TooltipVersion" xml:space="preserve">
+    <value>Version {0}</value>
+  </data>
+  <data name="Settings.Header.TooltipVersionPortable" xml:space="preserve">
+    <value>Version {0} (Portable)</value>
+  </data>
+</root>
