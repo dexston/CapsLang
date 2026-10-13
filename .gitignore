@@ -1,0 +1,11 @@
+.local/
+build/
+bin/
+obj/
+*.pfx
+resources/cert/*.pfx
+
+# Visual Studio / IDE temporary files
+.vs/
+*.user
+*.suo
