@@ -67,12 +67,6 @@
   <data name="Tray.Menu.Toggle" xml:space="preserve">
     <value>Переключение раскладки</value>
   </data>
-  <data name="Tray.Menu.Enable" xml:space="preserve">
-    <value>Включить</value>
-  </data>
-  <data name="Tray.Menu.Disable" xml:space="preserve">
-    <value>Отключить</value>
-  </data>
   <data name="Tray.Menu.Settings" xml:space="preserve">
     <value>Настройки...</value>
   </data>
@@ -94,18 +88,6 @@
   <data name="Settings.Startup.Desc" xml:space="preserve">
     <value>Автоматически запускать CapsLang в системном трее при входе</value>
   </data>
-  <data name="Settings.Language.Title" xml:space="preserve">
-    <value>Язык интерфейса</value>
-  </data>
-  <data name="Settings.Language.Desc" xml:space="preserve">
-    <value>Выберите язык отображения меню и настроек</value>
-  </data>
-  <data name="Settings.IconColor.Title" xml:space="preserve">
-    <value>Цвет активной иконки</value>
-  </data>
-  <data name="Settings.IconColor.Desc" xml:space="preserve">
-    <value>Выберите цвет значка в системном трее и заголовке окна</value>
-  </data>
   <data name="Settings.Processes.Title" xml:space="preserve">
     <value>Исключённые процессы (.exe)</value>
   </data>
@@ -120,45 +102,6 @@
   </data>
   <data name="Settings.EmptyHint" xml:space="preserve">
     <value>Список пуст — ограничений нет</value>
-  </data>
-  <data name="Settings.Button.Add" xml:space="preserve">
-    <value>+ Добавить</value>
-  </data>
-  <data name="Settings.Folders.Header" xml:space="preserve">
-    <value>Папки-исключения ({0}):</value>
-  </data>
-  <data name="Settings.Folders.Add" xml:space="preserve">
-    <value>Добавить папку...</value>
-  </data>
-  <data name="Settings.Processes.Header" xml:space="preserve">
-    <value>Исключённые процессы (.exe) ({0}):</value>
-  </data>
-  <data name="Settings.Processes.Add" xml:space="preserve">
-    <value>Добавить процесс (.exe)...</value>
-  </data>
-  <data name="Settings.Language.Label" xml:space="preserve">
-    <value>Язык интерфейса:</value>
-  </data>
-  <data name="Settings.Status.Active" xml:space="preserve">
-    <value>Статус: Активен</value>
-  </data>
-  <data name="Settings.Status.Paused" xml:space="preserve">
-    <value>Статус: Отключён</value>
-  </data>
-  <data name="Settings.Button.Enable" xml:space="preserve">
-    <value>Включить</value>
-  </data>
-  <data name="Settings.Button.Disable" xml:space="preserve">
-    <value>Отключить</value>
-  </data>
-  <data name="Settings.Button.Export" xml:space="preserve">
-    <value>Экспортировать настройки в .xml файл</value>
-  </data>
-  <data name="Settings.Button.Save" xml:space="preserve">
-    <value>Сохранить</value>
-  </data>
-  <data name="Settings.Button.Cancel" xml:space="preserve">
-    <value>Отмена</value>
   </data>
   <data name="Dialog.Folder.Prompt" xml:space="preserve">
     <value>Выберите папку для исключения (например, D:\Games\ или C:\Tools\)</value>
@@ -181,12 +124,6 @@
   </data>
   <data name="Dialog.Export.SuccessTitle" xml:space="preserve">
     <value>Экспорт настроек</value>
-  </data>
-  <data name="Dialog.Export.FailedCode" xml:space="preserve">
-    <value>Не удалось экспортировать настройки (код: {0}).</value>
-  </data>
-  <data name="Dialog.Export.Timeout" xml:space="preserve">
-    <value>Время ожидания операции экспорта истекло.</value>
   </data>
   <data name="Dialog.Export.Error" xml:space="preserve">
     <value>Ошибка при экспорте настроек:
@@ -247,12 +184,6 @@
   <data name="Language.En" xml:space="preserve">
     <value>English</value>
   </data>
-  <data name="IconColor.Blue" xml:space="preserve">
-    <value>Синий</value>
-  </data>
-  <data name="IconColor.Amber" xml:space="preserve">
-    <value>Янтарный</value>
-  </data>
   <data name="Settings.Menu.Export" xml:space="preserve">
     <value>Экспорт настроек</value>
   </data>
@@ -261,15 +192,6 @@
   </data>
   <data name="Settings.Header.Description" xml:space="preserve">
     <value>Быстрое переключение раскладки клавиатуры по нажатию Caps Lock</value>
-  </data>
-  <data name="Settings.Header.Copyright" xml:space="preserve">
-    <value>© 2026 Sergey Matveev (dexston)</value>
-  </data>
-  <data name="Settings.Header.SourceCode" xml:space="preserve">
-    <value>Исходный код</value>
-  </data>
-  <data name="Settings.Header.Share" xml:space="preserve">
-    <value>Поделиться</value>
   </data>
   <data name="Settings.Header.TooltipSourceCode" xml:space="preserve">
     <value>Перейти к исходному коду</value>
@@ -283,14 +205,8 @@
   <data name="Settings.Header.TooltipLanguage" xml:space="preserve">
     <value>Язык интерфейса</value>
   </data>
-  <data name="Settings.Header.TooltipExport" xml:space="preserve">
-    <value>Экспорт настроек</value>
-  </data>
   <data name="Settings.Header.TooltipBackup" xml:space="preserve">
     <value>Резервная копия настроек</value>
-  </data>
-  <data name="Settings.Header.TooltipTheme" xml:space="preserve">
-    <value>Сменить тему оформления</value>
   </data>
   <data name="Settings.Header.Version" xml:space="preserve">
     <value>{0}</value>

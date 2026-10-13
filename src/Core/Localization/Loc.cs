@@ -66,8 +66,6 @@ namespace CapsLang
             public static class Menu
             {
                 public static string Toggle => Get("Tray.Menu.Toggle");
-                public static string Enable => Get("Tray.Menu.Enable");
-                public static string Disable => Get("Tray.Menu.Disable");
                 public static string Settings => Get("Tray.Menu.Settings");
                 public static string Exit => Get("Tray.Menu.Exit");
             }
@@ -90,49 +88,16 @@ namespace CapsLang
                 public static string Desc => Get("Settings.Startup.Desc");
             }
 
-            public static class Language
-            {
-                public static string Title => Get("Settings.Language.Title");
-                public static string Desc => Get("Settings.Language.Desc");
-                public static string Label => Get("Settings.Language.Label");
-            }
-
-            public static class IconColor
-            {
-                public static string Title => Get("Settings.IconColor.Title");
-                public static string Desc => Get("Settings.IconColor.Desc");
-            }
-
             public static class Processes
             {
                 public static string Title => Get("Settings.Processes.Title");
                 public static string Desc => Get("Settings.Processes.Desc");
-                public static string Header(object arg0) => string.Format(CultureInfo.InvariantCulture, Get("Settings.Processes.Header"), arg0);
-                public static string Add => Get("Settings.Processes.Add");
             }
 
             public static class Folders
             {
                 public static string Title => Get("Settings.Folders.Title");
                 public static string Desc => Get("Settings.Folders.Desc");
-                public static string Header(object arg0) => string.Format(CultureInfo.InvariantCulture, Get("Settings.Folders.Header"), arg0);
-                public static string Add => Get("Settings.Folders.Add");
-            }
-
-            public static class Button
-            {
-                public static string Add => Get("Settings.Button.Add");
-                public static string Enable => Get("Settings.Button.Enable");
-                public static string Disable => Get("Settings.Button.Disable");
-                public static string Export => Get("Settings.Button.Export");
-                public static string Save => Get("Settings.Button.Save");
-                public static string Cancel => Get("Settings.Button.Cancel");
-            }
-
-            public static class Status
-            {
-                public static string Active => Get("Settings.Status.Active");
-                public static string Paused => Get("Settings.Status.Paused");
             }
 
             public static class Menu
@@ -144,16 +109,11 @@ namespace CapsLang
             public static class Header
             {
                 public static string Description => Get("Settings.Header.Description");
-                public static string Copyright => Get("Settings.Header.Copyright");
-                public static string SourceCode => Get("Settings.Header.SourceCode");
-                public static string Share => Get("Settings.Header.Share");
                 public static string TooltipSourceCode => Get("Settings.Header.TooltipSourceCode");
                 public static string TooltipShare => Get("Settings.Header.TooltipShare");
                 public static string TooltipShareCopied => Get("Settings.Header.TooltipShareCopied");
                 public static string TooltipLanguage => Get("Settings.Header.TooltipLanguage");
-                public static string TooltipExport => Get("Settings.Header.TooltipExport");
                 public static string TooltipBackup => Get("Settings.Header.TooltipBackup");
-                public static string TooltipTheme => Get("Settings.Header.TooltipTheme");
                 public static string Version(object arg0) => string.Format(CultureInfo.InvariantCulture, Get("Settings.Header.Version"), arg0);
                 public static string VersionPortable(object arg0) => string.Format(CultureInfo.InvariantCulture, Get("Settings.Header.VersionPortable"), arg0);
                 public static string TooltipVersion(object arg0) => string.Format(CultureInfo.InvariantCulture, Get("Settings.Header.TooltipVersion"), arg0);
@@ -180,8 +140,6 @@ namespace CapsLang
                 public static string Filter => Get("Dialog.Export.Filter");
                 public static string Success(object arg0) => string.Format(CultureInfo.InvariantCulture, Get("Dialog.Export.Success"), arg0);
                 public static string SuccessTitle => Get("Dialog.Export.SuccessTitle");
-                public static string FailedCode(object arg0) => string.Format(CultureInfo.InvariantCulture, Get("Dialog.Export.FailedCode"), arg0);
-                public static string Timeout => Get("Dialog.Export.Timeout");
                 public static string Error(object arg0) => string.Format(CultureInfo.InvariantCulture, Get("Dialog.Export.Error"), arg0);
                 public static string ErrorTitle => Get("Dialog.Export.ErrorTitle");
             }
@@ -212,12 +170,6 @@ namespace CapsLang
             public static string Auto => Get("Language.Auto");
             public static string Ru => Get("Language.Ru");
             public static string En => Get("Language.En");
-        }
-
-        public static class IconColor
-        {
-            public static string Blue => Get("IconColor.Blue");
-            public static string Amber => Get("IconColor.Amber");
         }
     }
 }

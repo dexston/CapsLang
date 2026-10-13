@@ -4,8 +4,6 @@
 "Tray.Active" = "CapsLang: активно";
 "Tray.Paused" = "CapsLang: отключено";
 "Tray.Menu.Toggle" = "Переключение раскладки";
-"Tray.Menu.Enable" = "Включить";
-"Tray.Menu.Disable" = "Отключить";
 "Tray.Menu.Settings" = "Настройки...";
 "Tray.Menu.Exit" = "Выход";
 
@@ -17,28 +15,11 @@
 "Settings.Active.Desc" = "Перехватывать клавишу Caps Lock для быстрой смены языка";
 "Settings.Startup.Title" = "Запускать вместе с Windows";
 "Settings.Startup.Desc" = "Автоматически запускать CapsLang в системном трее при входе";
-"Settings.Language.Title" = "Язык интерфейса";
-"Settings.Language.Desc" = "Выберите язык отображения меню и настроек";
-"Settings.IconColor.Title" = "Цвет активной иконки";
-"Settings.IconColor.Desc" = "Выберите цвет значка в системном трее и заголовке окна";
 "Settings.Processes.Title" = "Исключённые процессы (.exe)";
 "Settings.Processes.Desc" = "Утилита не перехватывает Caps Lock в выбранных программах";
 "Settings.Folders.Title" = "Папки-исключения";
 "Settings.Folders.Desc" = "Отключать перехват для всех программ, запущенных из этих папок";
 "Settings.EmptyHint" = "Список пуст — ограничений нет";
-"Settings.Button.Add" = "+ Добавить";
-"Settings.Folders.Header" = "Папки-исключения ({0}):";
-"Settings.Folders.Add" = "Добавить папку...";
-"Settings.Processes.Header" = "Исключённые процессы (.exe) ({0}):";
-"Settings.Processes.Add" = "Добавить процесс (.exe)...";
-"Settings.Language.Label" = "Язык интерфейса:";
-"Settings.Status.Active" = "Статус: Активен";
-"Settings.Status.Paused" = "Статус: Отключён";
-"Settings.Button.Enable" = "Включить";
-"Settings.Button.Disable" = "Отключить";
-"Settings.Button.Export" = "Экспортировать настройки в .xml файл";
-"Settings.Button.Save" = "Сохранить";
-"Settings.Button.Cancel" = "Отмена";
 
 // ==========================================
 // Диалоги и сообщения
@@ -50,8 +31,6 @@
 "Dialog.Export.Filter" = "Файлы настроек CapsLang (*.xml)|*.xml|Все файлы (*.*)|*.*";
 "Dialog.Export.Success" = "Настройки успешно экспортированы в файл:\n{0}";
 "Dialog.Export.SuccessTitle" = "Экспорт настроек";
-"Dialog.Export.FailedCode" = "Не удалось экспортировать настройки (код: {0}).";
-"Dialog.Export.Timeout" = "Время ожидания операции экспорта истекло.";
 "Dialog.Export.Error" = "Ошибка при экспорте настроек:\n{0}";
 "Dialog.Export.ErrorTitle" = "Ошибка экспорта";
 "Dialog.Import.Title" = "Импорт настроек CapsLang";
@@ -73,8 +52,6 @@
 "Language.Auto" = "Авто (системный)";
 "Language.Ru" = "Русский";
 "Language.En" = "English";
-"IconColor.Blue" = "Синий";
-"IconColor.Amber" = "Янтарный";
 
 // ==========================================
 // Меню и действия
@@ -86,19 +63,12 @@
 // Шапка и информация
 // ==========================================
 "Settings.Header.Description" = "Быстрое переключение раскладки клавиатуры по нажатию Caps Lock";
-"Settings.Header.Copyright" = "© 2026 Sergey Matveev (dexston)";
-"Settings.Header.SourceCode" = "Исходный код";
-"Settings.Header.Share" = "Поделиться";
 "Settings.Header.TooltipSourceCode" = "Перейти к исходному коду";
 "Settings.Header.TooltipShare" = "Скопировать ссылку на проект";
 "Settings.Header.TooltipShareCopied" = "Ссылка скопирована в буфер обмена";
 "Settings.Header.TooltipLanguage" = "Язык интерфейса";
-"Settings.Header.TooltipExport" = "Экспорт настроек";
 "Settings.Header.TooltipBackup" = "Резервная копия настроек";
-"Settings.Header.TooltipTheme" = "Сменить тему оформления";
 "Settings.Header.Version" = "{0}";
 "Settings.Header.VersionPortable" = "{0}-p";
 "Settings.Header.TooltipVersion" = "Версия {0}";
 "Settings.Header.TooltipVersionPortable" = "Версия {0} (Portable)";
-
-

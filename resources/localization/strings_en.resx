@@ -67,12 +67,6 @@
   <data name="Tray.Menu.Toggle" xml:space="preserve">
     <value>Layout switching</value>
   </data>
-  <data name="Tray.Menu.Enable" xml:space="preserve">
-    <value>Enable</value>
-  </data>
-  <data name="Tray.Menu.Disable" xml:space="preserve">
-    <value>Disable</value>
-  </data>
   <data name="Tray.Menu.Settings" xml:space="preserve">
     <value>Settings...</value>
   </data>
@@ -94,18 +88,6 @@
   <data name="Settings.Startup.Desc" xml:space="preserve">
     <value>Automatically start CapsLang in the system tray when signing in</value>
   </data>
-  <data name="Settings.Language.Title" xml:space="preserve">
-    <value>Interface language</value>
-  </data>
-  <data name="Settings.Language.Desc" xml:space="preserve">
-    <value>Choose the display language for tray menu and settings</value>
-  </data>
-  <data name="Settings.IconColor.Title" xml:space="preserve">
-    <value>Active icon color</value>
-  </data>
-  <data name="Settings.IconColor.Desc" xml:space="preserve">
-    <value>Choose the icon color for the system tray and window title</value>
-  </data>
   <data name="Settings.Processes.Title" xml:space="preserve">
     <value>Excluded processes (.exe)</value>
   </data>
@@ -120,45 +102,6 @@
   </data>
   <data name="Settings.EmptyHint" xml:space="preserve">
     <value>List is empty — no restrictions</value>
-  </data>
-  <data name="Settings.Button.Add" xml:space="preserve">
-    <value>+ Add</value>
-  </data>
-  <data name="Settings.Folders.Header" xml:space="preserve">
-    <value>Excluded Folders ({0}):</value>
-  </data>
-  <data name="Settings.Folders.Add" xml:space="preserve">
-    <value>Add folder...</value>
-  </data>
-  <data name="Settings.Processes.Header" xml:space="preserve">
-    <value>Excluded Processes (.exe) ({0}):</value>
-  </data>
-  <data name="Settings.Processes.Add" xml:space="preserve">
-    <value>Add process (.exe)...</value>
-  </data>
-  <data name="Settings.Language.Label" xml:space="preserve">
-    <value>Language:</value>
-  </data>
-  <data name="Settings.Status.Active" xml:space="preserve">
-    <value>Status: Active</value>
-  </data>
-  <data name="Settings.Status.Paused" xml:space="preserve">
-    <value>Status: Paused</value>
-  </data>
-  <data name="Settings.Button.Enable" xml:space="preserve">
-    <value>Enable</value>
-  </data>
-  <data name="Settings.Button.Disable" xml:space="preserve">
-    <value>Disable</value>
-  </data>
-  <data name="Settings.Button.Export" xml:space="preserve">
-    <value>Export settings to .xml file</value>
-  </data>
-  <data name="Settings.Button.Save" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="Settings.Button.Cancel" xml:space="preserve">
-    <value>Cancel</value>
   </data>
   <data name="Dialog.Folder.Prompt" xml:space="preserve">
     <value>Select a folder to exclude (e.g. D:\Games\ or C:\Tools\)</value>
@@ -181,12 +124,6 @@
   </data>
   <data name="Dialog.Export.SuccessTitle" xml:space="preserve">
     <value>Settings Export</value>
-  </data>
-  <data name="Dialog.Export.FailedCode" xml:space="preserve">
-    <value>Failed to export settings (code: {0}).</value>
-  </data>
-  <data name="Dialog.Export.Timeout" xml:space="preserve">
-    <value>Export operation timed out.</value>
   </data>
   <data name="Dialog.Export.Error" xml:space="preserve">
     <value>Error exporting settings:
@@ -247,12 +184,6 @@
   <data name="Language.En" xml:space="preserve">
     <value>English</value>
   </data>
-  <data name="IconColor.Blue" xml:space="preserve">
-    <value>Blue</value>
-  </data>
-  <data name="IconColor.Amber" xml:space="preserve">
-    <value>Amber</value>
-  </data>
   <data name="Settings.Menu.Export" xml:space="preserve">
     <value>Export settings</value>
   </data>
@@ -261,15 +192,6 @@
   </data>
   <data name="Settings.Header.Description" xml:space="preserve">
     <value>Fast and lightweight keyboard layout switcher via Caps Lock</value>
-  </data>
-  <data name="Settings.Header.Copyright" xml:space="preserve">
-    <value>© 2026 Sergey Matveev (dexston)</value>
-  </data>
-  <data name="Settings.Header.SourceCode" xml:space="preserve">
-    <value>Source code</value>
-  </data>
-  <data name="Settings.Header.Share" xml:space="preserve">
-    <value>Share</value>
   </data>
   <data name="Settings.Header.TooltipSourceCode" xml:space="preserve">
     <value>Open source code</value>
@@ -283,14 +205,8 @@
   <data name="Settings.Header.TooltipLanguage" xml:space="preserve">
     <value>Interface language</value>
   </data>
-  <data name="Settings.Header.TooltipExport" xml:space="preserve">
-    <value>Export settings</value>
-  </data>
   <data name="Settings.Header.TooltipBackup" xml:space="preserve">
     <value>Backup &amp; restore settings</value>
-  </data>
-  <data name="Settings.Header.TooltipTheme" xml:space="preserve">
-    <value>Switch color theme</value>
   </data>
   <data name="Settings.Header.Version" xml:space="preserve">
     <value>{0}</value>
