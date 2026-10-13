@@ -21,5 +21,10 @@ namespace CapsLang
                 .GetCustomAttributes<AssemblyMetadataAttribute>()
                 .First(a => string.Equals(a.Key, "RepositoryUrl", StringComparison.OrdinalIgnoreCase))
                 .Value;
+
+        public static readonly string Copyright =
+            typeof(AppMetadata).Assembly
+                .GetCustomAttribute<AssemblyCopyrightAttribute>()
+                .Copyright;
     }
 }

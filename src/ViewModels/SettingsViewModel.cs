@@ -113,7 +113,7 @@ namespace CapsLang.ViewModels
         public string AppVersionTooltip => Loc.Settings.Header.TooltipVersion(AppMetadata.Version);
 #endif
         public string AppDescriptionText => Loc.Settings.Header.Description;
-        public string AppCopyrightText => Loc.Settings.Header.Copyright;
+        public string AppCopyrightText => AppMetadata.Copyright;
         public string SourceCodeTooltip => Loc.Settings.Header.TooltipSourceCode;
         public string ShareTooltip => Loc.Settings.Header.TooltipShare;
         public string ShareCopiedText => Loc.Settings.Header.TooltipShareCopied;
