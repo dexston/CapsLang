@@ -42,7 +42,7 @@ function Unescape-String([string]$s, [ref]$hasError, [ref]$errorToken) {
             }
             $next = $s[$i + 1]
             switch ($next) {
-                'n'  { [void]$sb.Append("`n"); $i += 2; continue }
+                'n'  { [void]$sb.Append("`r`n"); $i += 2; continue }
                 'r'  { [void]$sb.Append("`r"); $i += 2; continue }
                 't'  { [void]$sb.Append("`t"); $i += 2; continue }
                 '"'  { [void]$sb.Append('"'); $i += 2; continue }
