@@ -1,0 +1,102 @@
+<Project>
+
+  <PropertyGroup>
+    <BaseOutputPath>build\bin\</BaseOutputPath>
+    <BaseIntermediateOutputPath>build\obj\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+
+  <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+    <LangVersion>latest</LangVersion>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+
+    <!-- Product Metadata -->
+    <AssemblyName>CapsLang</AssemblyName>
+    <RootNamespace>CapsLang</RootNamespace>
+    <Product>CapsLang</Product>
+    <AssemblyTitle>CapsLang</AssemblyTitle>
+    <Title>CapsLang</Title>
+    <Description>Fast and lightweight keyboard layout switcher via Caps Lock for Windows 10/11</Description>
+    <Company>dexston</Company>
+    <Authors>Sergey Matveev (dexston)</Authors>
+    <Copyright>Copyright © 2026 Sergey Matveev (dexston)</Copyright>
+    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/dexston/CapsLang</RepositoryUrl>
+
+    <!-- Default Version -->
+    <Version>1.0.0</Version>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+
+    <!-- Application Icon and Entry Point -->
+    <ApplicationIcon>resources\icons\app.ico</ApplicationIcon>
+    <StartupObject>CapsLang.Program</StartupObject>
+
+    <!-- Portable vs Installer Build Configuration -->
+    <IsPortable Condition="'$(IsPortable)' == ''">true</IsPortable>
+    <EditionName Condition="'$(IsPortable)' == 'true'">Portable</EditionName>
+    <EditionName Condition="'$(IsPortable)' != 'true'">Installer</EditionName>
+    <OutputPath>build\bin\$(Configuration)\$(EditionName)\</OutputPath>
+    <IntermediateOutputPath>build\obj\$(Configuration)\$(EditionName)\</IntermediateOutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <DefineConstants Condition="'$(IsPortable)' == 'true'">$(DefineConstants);PORTABLE</DefineConstants>
+    <EnableUIAccess Condition="'$(IsPortable)' != 'true'">true</EnableUIAccess>
+    <EnableUIAccess Condition="'$(EnableUIAccess)' == ''">false</EnableUIAccess>
+
+    <!-- Dynamic Application Manifest: canonical src\app.manifest or generated obj\app.manifest -->
+    <ApplicationManifest Condition="'$(EnableUIAccess)' != 'true'">src\app.manifest</ApplicationManifest>
+    <ApplicationManifest Condition="'$(EnableUIAccess)' == 'true'">$(IntermediateOutputPath)app.manifest</ApplicationManifest>
+  </PropertyGroup>
+
+  <!-- Generate modified UIAccess manifest on the fly in obj/ before compilation -->
+  <Target Name="GenerateUIAccessManifest"
+          BeforeTargets="_SetEmbeddedWin32ManifestProperties;CoreCompile"
+          Condition="'$(EnableUIAccess)' == 'true'">
+    <MakeDir Directories="$(IntermediateOutputPath)" Condition="!Exists('$(IntermediateOutputPath)')" />
+    <PropertyGroup>
+      <_AppManifestText>$([System.IO.File]::ReadAllText('$(MSBuildProjectDirectory)\src\app.manifest').Replace('uiAccess="false"', 'uiAccess="true"'))</_AppManifestText>
+    </PropertyGroup>
+    <WriteLinesToFile File="$(ApplicationManifest)"
+                      Lines="$(_AppManifestText)"
+                      Overwrite="true"
+                      WriteOnlyWhenDifferent="true" />
+    <ItemGroup>
+      <FileWrites Include="$(ApplicationManifest)" />
+    </ItemGroup>
+  </Target>
+
+  <!-- Embedded Tray Icons with exact logical names -->
+  <ItemGroup>
+    <EmbeddedResource Include="resources\icons\app.ico" LogicalName="app.ico" />
+    <EmbeddedResource Include="resources\icons\app_amber.ico" LogicalName="app_amber.ico" />
+    <EmbeddedResource Include="resources\icons\paused.ico" LogicalName="paused.ico" />
+  </ItemGroup>
+
+  <!-- Embedded Localization Resources with exact logical names (no satellite assemblies) -->
+  <ItemGroup>
+    <EmbeddedResource Update="resources\localization\strings_*.resx" LogicalName="CapsLang.Resources.%(Filename).resources" />
+  </ItemGroup>
+
+  <!-- Reference Assemblies to build net48 via any .NET SDK without DevPack -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="All" />
+  </ItemGroup>
+
+  <!-- Gracefully quit any running instance before build/clean to prevent file locking -->
+  <Target Name="QuitRunningInstanceBeforeBuild"
+          BeforeTargets="BeforeBuild;BeforeClean"
+          Condition="'$(OS)' == 'Windows_NT' and '$(CI)' != 'true'">
+    <Exec Command="powershell -NoProfile -NonInteractive -Command &quot;if (Get-Process -Name CapsLang -ErrorAction SilentlyContinue) { try { [void][System.Threading.EventWaitHandle]::OpenExisting('Local\CapsLang_Quit_Event').Set() } catch {}; Get-Process -Name CapsLang -ErrorAction SilentlyContinue | Wait-Process -Timeout 2 -ErrorAction SilentlyContinue; Get-Process -Name CapsLang -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue }&quot;"
+          IgnoreExitCode="true"
+          StandardOutputImportance="Low"
+          StandardErrorImportance="Low" />
+  </Target>
+
+  <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
+
+</Project>
