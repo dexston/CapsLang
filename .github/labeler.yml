@@ -1,0 +1,16 @@
+enhancement:
+  - head-branch: ['^feature/', '^feat/']
+
+bug:
+  - head-branch: ['^fix/', '^bugfix/', '^hotfix/']
+
+chore:
+  - head-branch: ['^chore/', '^ci/', '^build/']
+
+localization:
+  - changed-files:
+      - any-glob-to-any-file: ['resources/localization/**']
+
+documentation:
+  - changed-files:
+      - any-glob-to-any-file: ['README.md', 'LICENSE', 'docs/**']
