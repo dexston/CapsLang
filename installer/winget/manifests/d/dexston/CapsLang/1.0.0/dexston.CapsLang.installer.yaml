@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://aka.ms/winget-manifest.installer.1.6.0.schema.json
+
+PackageIdentifier: dexston.CapsLang
+PackageVersion: 1.0.0
+InstallerLocale: en-US
+Platform:
+  - Windows.Desktop
+MinimumOSVersion: 10.0.17763.0
+InstallerType: inno
+Scope: machine
+InstallModes:
+  - interactive
+  - silent
+  - silentWithProgress
+InstallerSwitches:
+  Silent: /VERYSILENT /NORESTART
+  SilentWithProgress: /SILENT /NORESTART
+UpgradeBehavior: install
+ProductCode: '{8B1D4F3A-4E90-449D-9B8A-701C5DCE6391}_is1'
+Installers:
+  - Architecture: x64
+    InstallerUrl: https://github.com/dexston/CapsLang/releases/download/v1.0.0/CapsLang-1.0.0-Setup.exe
+    InstallerSha256: 30C7867362A448DE9D5955EF08147CAC8FA4897384761A97E3540467DED7F461
+  - Architecture: x86
+    InstallerUrl: https://github.com/dexston/CapsLang/releases/download/v1.0.0/CapsLang-1.0.0-Setup.exe
+    InstallerSha256: 30C7867362A448DE9D5955EF08147CAC8FA4897384761A97E3540467DED7F461
+ManifestType: installer
+ManifestVersion: 1.6.0
