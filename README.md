@@ -1,4 +1,21 @@
+<p align="center">
+  <img src="resources/icons/app.ico" width="72" height="72" alt="CapsLang Logo" />
+</p>
+
 # CapsLang
+
+<p align="center">
+  <a href="README_EN.md">English</a> •
+  <b>Русский</b>
+</p>
+
+<p align="center">
+  <a href="https://github.com/dexston/CapsLang/releases/latest"><img src="https://img.shields.io/github/v/release/dexston/CapsLang?color=2ea44f&logo=github&label=Release" alt="Latest Release" /></a>
+  <a href="https://github.com/dexston/CapsLang/releases"><img src="https://img.shields.io/badge/Platform-Windows%2010%20%7C%2011-0078d4?logo=windows" alt="Platform: Windows 10 | 11" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-GPL--3.0-orange.svg" alt="License: GPL-3.0" /></a>
+</p>
+
+---
 
 **CapsLang** — лёгкая и быстрая утилита для Windows 10 и 11, которая переключает язык ввода по нажатию клавиши `Caps Lock` и умеет автоматически отключаться в выбранных играх и программах.
 

@@ -13,4 +13,4 @@ localization:
 
 documentation:
   - changed-files:
-      - any-glob-to-any-file: ['README.md', 'LICENSE', 'docs/**']
+      - any-glob-to-any-file: ['README*.md', 'LICENSE', 'docs/**']
