@@ -3,11 +3,11 @@ name: Release
 on:
   push:
     tags:
-      - '[0-9]*.[0-9]*.[0-9]*'
+      - 'v[0-9]*.[0-9]*.[0-9]*'
   workflow_dispatch:
     inputs:
       version:
-        description: 'Release version (e.g. 1.0.0)'
+        description: 'Release version (e.g. v1.0.1)'
         required: true
         type: string
 
@@ -33,37 +33,31 @@ jobs:
           REF_NAME: ${{ github.ref_name }}
           INPUT_VERSION: ${{ inputs.version }}
         run: |
-          $version = if ($env:EVENT_NAME -eq "workflow_dispatch") { $env:INPUT_VERSION } else { $env:REF_NAME }
-          if ([string]::IsNullOrWhiteSpace($version) -or ($version -notmatch '^\d+\.\d+\.\d+(-[0-9A-Za-z.-]+)?$')) {
-              Write-Error "FAIL-FAST: Invalid version format '$version'! Expected strict SemVer without 'v' prefix (e.g. '1.0.0' or '1.0.0-beta.1')."
+          $rawTag = if ($env:EVENT_NAME -eq "workflow_dispatch") {
+              if ($env:INPUT_VERSION -like 'v*') { $env:INPUT_VERSION } else { "v$($env:INPUT_VERSION)" }
+          } else {
+              $env:REF_NAME
+          }
+          if ([string]::IsNullOrWhiteSpace($rawTag) -or ($rawTag -notmatch '^v\d+\.\d+\.\d+(-[0-9A-Za-z.-]+)?$')) {
+              Write-Error "FAIL-FAST: Invalid version format '$rawTag'! Expected strict SemVer with 'v' prefix (e.g. 'v1.0.1' or 'v1.0.1-beta.1')."
               exit 1
           }
           if ($env:EVENT_NAME -eq "workflow_dispatch") {
-              $existingTag = git tag -l $version
+              $existingTag = git tag -l $rawTag
               if (-not [string]::IsNullOrWhiteSpace($existingTag)) {
-                  Write-Error "FAIL-FAST: Tag '$version' already exists in the repository!"
+                  Write-Error "FAIL-FAST: Tag '$rawTag' already exists in the repository!"
                   exit 1
               }
           }
-          "RELEASE_VERSION=$version" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-          Write-Host "Validated release version: $version" -ForegroundColor Green
+          $buildVersion = $rawTag.Substring(1)
+          "RELEASE_TAG=$rawTag" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+          "RELEASE_VERSION=$buildVersion" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+          Write-Host "Validated release: tag=$rawTag, build_version=$buildVersion" -ForegroundColor Green
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '10.0.x'
-
-      - name: Setup Inno Setup
-        shell: pwsh
-        run: |
-          $isccCmd = (Get-Command iscc.exe -ErrorAction SilentlyContinue)
-          $preinstalled = "${env:ProgramFiles(x86)}\Inno Setup 6\iscc.exe"
-          if ($isccCmd -or (Test-Path $preinstalled)) {
-              Write-Host "Inno Setup is already present on this runner. Skipping installation."
-          } else {
-              Write-Host "Inno Setup not found on runner. Installing via Chocolatey..."
-              choco install innosetup --no-progress -y
-          }
 
       - name: Restore Code Signing Certificate
         shell: pwsh
@@ -130,8 +124,8 @@ jobs:
       - name: Publish GitHub Release
         uses: softprops/action-gh-release@v3
         with:
-          tag_name: ${{ env.RELEASE_VERSION }}
-          name: "CapsLang ${{ env.RELEASE_VERSION }}"
+          tag_name: ${{ env.RELEASE_TAG }}
+          name: ${{ env.RELEASE_TAG }}
           files: |
             build/dist/CapsLang-*-Setup.exe
             build/dist/CapsLang-*-Setup.exe.sha256

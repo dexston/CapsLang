@@ -66,8 +66,11 @@ if ([string]::IsNullOrWhiteSpace($Version)) {
         $Version = "1.0.0"
     }
 }
+if ($Version.StartsWith("v", [StringComparison]::OrdinalIgnoreCase)) {
+    $Version = $Version.Substring(1)
+}
 if ($Version -notmatch '^\d+\.\d+\.\d+(-[0-9A-Za-z.-]+)?$') {
-    Write-Error "FAIL-FAST: Invalid version format '$Version'! Expected SemVer format without 'v' prefix (e.g. '1.0.0')."
+    Write-Error "FAIL-FAST: Invalid version format '$Version'! Expected SemVer format (e.g. '1.0.0' or 'v1.0.0')."
     exit 1
 }
 
